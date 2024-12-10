@@ -62,3 +62,4 @@ namespace PR_28.Pages.Add
             mw.frame.Navigate(new Pages.Main(mw));
         }
     }
+}

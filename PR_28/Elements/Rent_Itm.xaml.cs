@@ -20,30 +20,31 @@ namespace PR_28.Elements
     /// </summary>
     public partial class Rent_Itm : UserControl
     {
-         MainWindow mw;
+        MainWindow mw;
+        Classes.Rent rent;
         Classes.Club club;
-        public Club_Itm(MainWindow mw, Classes.Club club)
+        public Rent_Itm(MainWindow mw, Classes.Rent rent)
         {
             InitializeComponent();
             this.mw = mw;
-            this.club = club;
-            name.Content = "Наименование: " + club.name;
-            address.Content = "Адрес: " + club.address;
-            time.Content = "Время работы: " + club.time_start + " - " + club.time_end;
+            this.rent = rent;
+            name.Content = "Клуб: " + rent.name;
+            datetime.Content = "Дата и время: " + rent.dateandtime;
+            fio.Content = "ФИО клиента: " + rent.fio;
         }
 
         private void Edit_Click(object sender, MouseButtonEventArgs e)
         {
-            mw.frame.Navigate(new Pages.Add.Club_Add(mw, club));
+            mw.frame.Navigate(new Pages.Add.Rent_Add(mw, rent));
         }
 
         private void Del_Click(object sender, MouseButtonEventArgs e)
         {
-            string query = "DELETE FROM clubs WHERE id=" + club.id;
+            string query = "DELETE FROM rents WHERE id=" + rent.id;
             mw.Connection(query);
-            mw.LoadClub();
+            mw.LoadRent();
             MessageBox.Show("Запись успешно удалена.");
-            mw.frame.Navigate(new Pages.Main(mw));
+            mw.frame.Navigate(new Pages.Rent_Main(mw));
         }
     }
 }
