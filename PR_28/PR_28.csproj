@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Elements\Rent_Itm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +75,9 @@
     <Compile Include="Classes\Rent.cs" />
     <Compile Include="Elements\Club_Itm.xaml.cs">
       <DependentUpon>Club_Itm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Rent_Itm.xaml.cs">
+      <DependentUpon>Rent_Itm.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
