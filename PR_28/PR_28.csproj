@@ -95,7 +95,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Rent.xaml">
+    <Page Include="Pages\Rent_Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,8 +110,8 @@
     <Compile Include="Pages\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Rent.xaml.cs">
-      <DependentUpon>Rent.xaml</DependentUpon>
+    <Compile Include="Pages\Rent_Main.xaml.cs">
+      <DependentUpon>Rent_Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

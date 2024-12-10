@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PR_28.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Rent.xaml
+    /// Логика взаимодействия для Rent_Main.xaml
     /// </summary>
-    public partial class Rent : Page
+    public partial class Rent_Main : Page
     {
-        public Rent()
+        public Rent_Main()
         {
             InitializeComponent();
         }
