@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,30 @@ namespace PR_28.Elements
     /// </summary>
     public partial class Rent_Itm : UserControl
     {
-        public Rent_Itm()
+        MainWindow mw;
+        Classes.Club club;
+        public Club_Itm(MainWindow mw, Classes.Club club)
         {
             InitializeComponent();
+            this.mw = mw;
+            this.club = club;
+            name.Content = "Наименование: " + club.name;
+            address.Content = "Адрес: " + club.address;
+            time.Content = "Время работы: " + club.time_start + " - " + club.time_end;
+        }
+
+        private void Edit_Click(object sender, MouseButtonEventArgs e)
+        {
+            mw.frame.Navigate(new Pages.Add.Club_Add(mw, club));
+        }
+
+        private void Del_Click(object sender, MouseButtonEventArgs e)
+        {
+            string query = "DELETE FROM clubs WHERE id=" + club.id;
+            mw.Connection(query);
+            mw.LoadClub();
+            MessageBox.Show("Запись успешно удалена.");
+            mw.frame.Navigate(new Pages.Main(mw));
         }
     }
 }

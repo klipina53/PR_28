@@ -20,9 +20,30 @@ namespace PR_28.Elements
     /// </summary>
     public partial class Club_Itm : UserControl
     {
-        public Club_Itm()
+        MainWindow mw;
+        Classes.Club club;
+        public Club_Itm(MainWindow mw, Classes.Club club)
         {
             InitializeComponent();
+            this.mw = mw;
+            this.club = club;
+            name.Content = "Наименование: " + club.name;
+            address.Content = "Адрес: " + club.address;
+            time.Content = "Время работы: " + club.time_start + " - " + club.time_end;
+        }
+
+        private void Edit_Click(object sender, MouseButtonEventArgs e)
+        {
+            mw.frame.Navigate(new Pages.Add.Club_Add(mw, club));
+        }
+
+        private void Del_Click(object sender, MouseButtonEventArgs e)
+        {
+            string query = "DELETE FROM clubs WHERE id=" + club.id;
+            mw.Connection(query);
+            mw.LoadClub();
+            MessageBox.Show("Запись успешно удалена.");
+            mw.frame.Navigate(new Pages.Main(mw));
         }
     }
 }
